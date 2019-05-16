@@ -21,13 +21,13 @@ export const charsReducer = (state = initialState, action) => {
         };
 
       case DATA_SUCCESS:
-      console.log(action.payload);
+      console.log(...action.payload);
         return {
           // perform state change for these actions
           ...state,
           fetching: false,
           error: null,
-          characters: [...state.characters, action.payload]
+          characters: [...state.characters, ...action.payload]
         };
 
 
