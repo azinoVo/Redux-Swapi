@@ -16,6 +16,8 @@ class CharacterListView extends React.Component {
 
 
   render() {
+    console.log(this.props.characters);
+
     if (this.props.fetching) {
       // return something here to indicate that you are fetching data
       <Loader type="Hearts" color="red" height="90" width="60" />
@@ -35,7 +37,6 @@ const mapStateToProps = state => ({
   characters: state.charsReducer.characters,
   fetching: state.charsReducer.fetching
 });
-
 
 
 export default connect(

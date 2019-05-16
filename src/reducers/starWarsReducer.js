@@ -30,6 +30,7 @@ export const charsReducer = (state = initialState, action) => {
           characters: [...state.characters, action.payload]
         };
 
+
       case DATA_FAILURE:
       console.log(action.payload);
         return {
