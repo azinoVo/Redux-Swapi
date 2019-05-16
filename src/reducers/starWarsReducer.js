@@ -3,7 +3,7 @@ import /* we need our action types here*/ { FETCHING_DATA, DATA_SUCCESS, DATA_FA
 const initialState = {
   characters: [],
   // Array characters, Boolean fetching, null error.
-  loading: false,
+  fetching: false,
   error: null
 };
 
@@ -15,16 +15,26 @@ export const charsReducer = (state = initialState, action) => {
       case FETCHING_DATA:
         return {
           // perform state change for these actions
+          ...state,
+          fetching: true,
+          error: "Fetching Data Now."
         };
 
       case DATA_SUCCESS:
         return {
           // perform state change for these actions
+          ...state,
+          fetching: false,
+          error: null,
+          characters: action.payload
         };
 
       case DATA_FAILURE:
         return {
           // perform state change for these actions
+          ...state,
+          fetching: false,
+          error: action.payload
         };
 
     default:
